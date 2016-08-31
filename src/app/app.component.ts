@@ -16,9 +16,11 @@ export class AppComponent {
   }
 
   generateMatrix(count) {
-    let arr = [];
-    for (let i = 0; i < count; i++) {
-      arr.push(this.createElem());
+    for(let i = 0; i < count; i++){
+      let arr = [];
+      for (let j = 0; j < count; j++) {
+        arr.push(this.createElem());
+      }
       this.matrix.push(arr);
     }
   }

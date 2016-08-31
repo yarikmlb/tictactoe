@@ -16,6 +16,8 @@ var AppComponent = (function () {
         var arr = [];
         for (var i = 0; i < count; i++) {
             arr.push(this.createElem());
+        }
+        for (var i = 0; i < count; i++) {
             this.matrix.push(arr);
         }
     };

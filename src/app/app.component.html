@@ -1,3 +1,5 @@
-<app-square *ngFor="let line of matrix">{{name}}</app-square>
-
-
+<div class="wrapper">
+  <div *ngFor="let line of matrix">
+    <app-square *ngFor="let elem of line" [square]="elem"></app-square>
+  </div>
+</div>

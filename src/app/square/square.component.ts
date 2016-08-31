@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -7,8 +7,22 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['square.component.css']
 })
 export class SquareComponent implements OnInit {
+  public count = 0;
+
+  @Input()
+  square: Object;
 
   constructor(){}
+
+  changeValue(square) {
+    if (this.count % 2 === 0 && square.value === '') {
+      square.value = 1;
+      this.count += 1;
+    } else if (this.count % 2 !== 0 && square.value === '') {
+      square.value = 0;
+      this.count += 1;
+    }
+  }
 
   ngOnInit() {
   }
