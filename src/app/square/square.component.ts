@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {GameService} from '../game.service';
 
 @Component({
   moduleId: module.id,
@@ -8,25 +9,16 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 
 export class SquareComponent implements OnInit {
-  public count = 0;
 
   @Input()
   square: Object;
 
-  constructor(){}
+  constructor(private _gameService: GameService){}
 
   changeValue(square) {
-    if (this.count % 2 === 0 && square.value === '') {
-      square.value = 1;
-      this.count++;
-    } else if (this.count % 2 !== 0 && square.value === '') {
-      square.value = 0;
-      this.count++;
-    }
+    this._gameService.nextStep(square);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
-

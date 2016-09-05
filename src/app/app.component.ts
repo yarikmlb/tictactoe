@@ -13,9 +13,13 @@ import {GameService} from './game.service';
 
 export class AppComponent {
   public matrix = [];
+  public size = 4;
 
   constructor(private _gameService: GameService){
-    this._gameService.generateMatrix(4);
-    this.matrix = this._gameService.matrix;
+     this.startGame(this.size);
+  }
+
+  startGame(size){
+    this.matrix = this._gameService.generateMatrix(size);
   }
 }
