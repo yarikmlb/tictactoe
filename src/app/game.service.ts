@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GameService {
   public matrix = [];
+  public count = 0;
 
   constructor() {}
 

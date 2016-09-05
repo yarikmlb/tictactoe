@@ -3,7 +3,7 @@ import {SquareComponent} from "./square/square.component";
 import {GameService} from './game.service';
 
 @Component({
-  moduleId: 'module.id',
+  moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
