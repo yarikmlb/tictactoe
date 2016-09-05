@@ -1,31 +1,21 @@
 import { Component } from '@angular/core';
 import {SquareComponent} from "./square/square.component";
+import {GameService} from './game.service';
 
 @Component({
-  moduleId: module.id,
+  moduleId: 'module.id',
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [SquareComponent]
+  directives: [SquareComponent],
+  providers: [GameService]
 })
+
 export class AppComponent {
   public matrix = [];
 
-  constructor(){
-    this.generateMatrix(4);
-  }
-
-  generateMatrix(count) {
-    for(let i = 0; i < count; i++){
-      let arr = [];
-      for (let j = 0; j < count; j++) {
-        arr.push(this.createElem());
-      }
-      this.matrix.push(arr);
-    }
-  }
-
-  createElem(){
-    return ({value: ''});
+  constructor(private _gameService: GameService){
+    this._gameService.generateMatrix(4);
+    this.matrix = this._gameService.matrix;
   }
 }

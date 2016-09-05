@@ -6,6 +6,7 @@ import {Component, OnInit, Input} from '@angular/core';
   templateUrl: 'square.component.html',
   styleUrls: ['square.component.css']
 })
+
 export class SquareComponent implements OnInit {
   public count = 0;
 
@@ -17,10 +18,10 @@ export class SquareComponent implements OnInit {
   changeValue(square) {
     if (this.count % 2 === 0 && square.value === '') {
       square.value = 1;
-      this.count += 1;
+      this.count++;
     } else if (this.count % 2 !== 0 && square.value === '') {
       square.value = 0;
-      this.count += 1;
+      this.count++;
     }
   }
 

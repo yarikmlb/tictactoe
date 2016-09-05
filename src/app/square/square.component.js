@@ -7,16 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var SquareComponent = (function () {
-    function SquareComponent() {
+    function SquareComponent(_squareService) {
+        this._squareService = _squareService;
     }
+    SquareComponent.prototype.changeValue = function (square) {
+        if (this._squareService.count % 2 === 0 && square.value === '') {
+            square.value = 1;
+            this._squareService.count++;
+        }
+        else if (this._squareService.count % 2 !== 0 && square.value === '') {
+            square.value = 0;
+            this._squareService.count++;
+        }
+    };
     SquareComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.Input()
+    ], SquareComponent.prototype, "square");
     SquareComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'app-square',
             templateUrl: 'square.component.html',
-            styleUrls: ['square.component.css']
+            styleUrls: ['square.component.css'],
+            providers: ['SquareService']
         })
     ], SquareComponent);
     return SquareComponent;
