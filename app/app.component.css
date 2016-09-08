@@ -1,3 +1,13 @@
 .wrapper {
   text-align: center;
 }
+.btn-group {
+  margin: 10px 0;
+}
+.btn-checkbox {
+  display: inline-block;
+}
+.btn-checkbox input {
+  width: 30px;
+  padding: 5px 0px 5px 5px;
+}
