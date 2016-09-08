@@ -1,12 +1,16 @@
 <div class="wrapper">
+  <h2 *ngIf="_gameService.xWin && _gameService.gameWinner">X Win!!!</h2>
+  <h2 *ngIf="_gameService.oWin && _gameService.gameWinner">0 Win!!!</h2>
   <div *ngFor="let line of matrix">
     <app-square *ngFor="let elem of line" [square]="elem"></app-square>
   </div>
   <div class="btn-group">
     <div class="btn-checkbox">
       <label for="size">Field size:</label>
-      <input type="number" id="size" [(ngModel)]="size">
+      <input type="number" min="3" max="10" id="size" [(ngModel)]="_gameService.size">
+      <label for="winLine">Winner line:</label>
+      <input type="number" min="3" max="10" id="winLine" [(ngModel)]="_gameService.winLine">
     </div>
-    <button (click)="startGame(size)" style="padding: 5px">start</button>
+    <button (click)="startGame(_gameService.size)" style="padding: 5px">start</button>
   </div>
 </div>
