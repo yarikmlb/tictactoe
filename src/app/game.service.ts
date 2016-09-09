@@ -12,7 +12,6 @@ export class GameService {
   private gameWinner = false;
   private deadHeat = false;
   private canClick = true;
-  //private winarr = [];
   private xWin = false;
   private oWin = false;
 
@@ -29,18 +28,20 @@ export class GameService {
     this.winCombination = [];
     this.steps = {'1': [], '0': []};
     this.matrix = [];
+    let index = 0;
     for(let i = 0; i < size; i++){
       let arr = [];
       for (let j = 0; j < size; j++) {
-        arr.push(this.createElem(j));
+        arr.push(this.createElem(index));
+        index++;
       }
       this.matrix.push(arr);
     }
     return this.matrix;
   }
 
-  createElem(j){
-    return ({value: '', index: j});
+  createElem(index){
+    return ({value: '', index: index});
   }
 
   nextStep(square){
@@ -57,13 +58,9 @@ export class GameService {
       if (!this.winCombination.length) {
         this.generateWinCombinations();
       }
-      if (this.checkWineer(square.value)) {
+      if (this.checkWinner(square.value)) {
         this.gameWinner = true;
         this.canClick = !this.canClick;
-        /*for(let k = 0; k < this.winarr.length; k++){
-          this.winarr[k].color = 'red';
-          console.log(this.winarr[k].color);
-        }*/
         if(this.count % 2 === 0 && this.gameWinner && this.xWin === false){
           this.oWin = true;
         }else if(this.count % 2 !== 0 && this.gameWinner && this.oWin === false){
@@ -134,11 +131,10 @@ export class GameService {
     }
   }
 
-  checkWineer(value) {
+  checkWinner(value) {
     let winner= false;
     for (let i = 0; i < this.winCombination.length; i++) {
       if (this.winCombination[i].every((number) => {
-          //this.winarr.push(this.steps[value]);
           return this.steps[value].indexOf(number) !== -1;
         })) {
         winner= true;

@@ -9,5 +9,18 @@
 }
 .btn-checkbox input {
   width: 30px;
-  padding: 5px 0px 5px 5px;
+  padding: 5px 0px 5px 10px;
+}
+.btn-field,
+.btn-winLine {
+  margin: 10px 0;
+}
+.btn-field label {
+  margin-right: 11px;
+}
+.btn-group button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: green;
 }
