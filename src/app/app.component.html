@@ -1,6 +1,7 @@
 <div class="wrapper">
   <h2 *ngIf="_gameService.xWin && _gameService.gameWinner">X Win!!!</h2>
   <h2 *ngIf="_gameService.oWin && _gameService.gameWinner">0 Win!!!</h2>
+  <h2 *ngIf="_gameService.deadHeat">Dead Heat!!!</h2>
   <div *ngFor="let line of matrix">
     <app-square *ngFor="let elem of line" [square]="elem"></app-square>
   </div>

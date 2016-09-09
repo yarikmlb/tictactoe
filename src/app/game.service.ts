@@ -21,6 +21,7 @@ export class GameService {
     this.xWin = false;
     this.oWin = false;
     this.count = 0;
+    this.deadHeat = false;
     this.canClick = true;
     this.winLine = (this.size >= this.winLine) ? this.winLine : this.size;
     this.startSquare = 0;
