@@ -6,11 +6,15 @@
   </div>
   <div class="btn-group">
     <div class="btn-checkbox">
-      <label for="size">Field size:</label>
-      <input type="number" min="3" max="10" id="size" [(ngModel)]="_gameService.size">
-      <label for="winLine">Winner line:</label>
-      <input type="number" min="3" max="10" id="winLine" [(ngModel)]="_gameService.winLine">
+      <div class="btn-field">
+        <label for="size">Field size:</label>
+        <input type="number" min="3" max="10" id="size" [(ngModel)]="_gameService.size">
+      </div>
+      <div class="btn-winLine">
+        <label for="winLine">Winner line:</label>
+        <input type="number" min="3" max="10" id="winLine" [(ngModel)]="_gameService.winLine">
+      </div>
     </div>
-    <button (click)="startGame(_gameService.size)" style="padding: 5px">start</button>
+    <button (click)="startGame(_gameService.size)">start</button>
   </div>
 </div>
